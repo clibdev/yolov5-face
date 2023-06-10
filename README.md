@@ -4,9 +4,10 @@ Differences between original repository and fork:
 
 * Compatibility with PyTorch >=2.0. (🔥)
 * Installation with [requirements.txt](requirements.txt) file.
-* The wider_val.txt file for WIDERFace evaluation. 
+* The [wider_val.txt](data/widerface/val/wider_val.txt) file for WIDERFace evaluation. 
 * No deprecations. The following deprecations has been fixed:
   * UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument.
+  * DeprecationWarning: 'np.float' is a deprecated alias for builtin 'float'.
 * No unnecessary files.
 
 # Installation
