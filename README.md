@@ -2,8 +2,9 @@
 
 Differences between original repository and fork:
 
-* Compatibility with PyTorch >=2.0
+* Compatibility with PyTorch >=2.0. (🔥)
 * Installation with [requirements.txt](requirements.txt) file.
+* The wider_val.txt file for WIDERFace evaluation. 
 * No deprecations. The following deprecations has been fixed:
   * UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument.
 
