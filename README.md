@@ -27,6 +27,11 @@ Differences between original repository and fork:
 | yolov5m     | 95.30 | 93.76  | 85.28 | 18.146   | 21.063    | [PyTorch](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5m-face.pt) |
 | yolov5l     | 95.78 | 94.30  | 86.13 | 41.607   | 46.627    |                                                                                            |
 
+# Export to ONNX format
+
+* `pip install onnx onnxruntime`
+* `python export.py --weights weights/yolov5s-face.pt`
+
 ## Data preparation
 
 1. Download WIDERFace datasets.

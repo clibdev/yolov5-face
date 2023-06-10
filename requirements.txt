@@ -7,3 +7,7 @@ seaborn>=0.12.0
 scipy>=1.10.0
 thop>=0.1.1
 Cython>=0.29.35
+
+### Optional
+# onnx>=1.14.0
+# onnxruntime>=1.15.0
