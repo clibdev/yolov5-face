@@ -3,7 +3,7 @@
 Differences between original repository and fork:
 
 * Compatibility with PyTorch >=2.0. (🔥)
-* Pretrained models from GitHub [releases page](https://github.com/clibdev/yolov5-face/releases). (🔥)
+* Original pretrained models from GitHub [releases page](https://github.com/clibdev/yolov5-face/releases). (🔥)
 * Installation with [requirements.txt](requirements.txt) file.
 * The [wider_val.txt](data/widerface/val/wider_val.txt) file for WIDERFace evaluation. 
 * No deprecations. The following deprecations has been fixed:
