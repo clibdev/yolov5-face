@@ -1,3 +1,13 @@
+# Fork of [deepcam-cn/yolov5-face](https://github.com/deepcam-cn/yolov5-face)
+
+* Added [requirements.txt](requirements.txt) file.
+
+# Installation
+
+* `pip install -r requirements.txt`
+
+# Original Readme
+
 ## What's New
 
 **2023.04** [yolov8-face](https://github.com/derronqi/yolov8-face) (🔥🔥🔥↑) 
