@@ -7,6 +7,7 @@ Differences between original repository and fork:
 * The wider_val.txt file for WIDERFace evaluation. 
 * No deprecations. The following deprecations has been fixed:
   * UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument.
+* No unnecessary files.
 
 # Installation
 

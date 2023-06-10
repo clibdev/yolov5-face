@@ -3,3 +3,4 @@
 *.pt
 /data/widerface/val/images
 /widerface_evaluate/widerface_txt
+/runs
