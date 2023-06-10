@@ -1,6 +1,8 @@
 # Fork of [deepcam-cn/yolov5-face](https://github.com/deepcam-cn/yolov5-face)
 
 * Added [requirements.txt](requirements.txt) file.
+* Fixed deprecations:
+  * UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument.
 
 # Installation
 
