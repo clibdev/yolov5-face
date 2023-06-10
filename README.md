@@ -9,6 +9,7 @@ Differences between original repository and fork:
   * UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument.
   * DeprecationWarning: 'np.float' is a deprecated alias for builtin 'float'.
   * FutureWarning: Cython directive 'language_level' not set.
+  * Cython Warning: Using deprecated NumPy API.
 * No unnecessary files.
 
 # Installation
