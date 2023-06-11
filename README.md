@@ -14,7 +14,9 @@ Differences between original repository and fork:
 
 # Installation
 
-* `pip install -r requirements.txt`
+```shell
+pip install -r requirements.txt
+```
 
 # Pretrained models
 
@@ -28,21 +30,36 @@ Differences between original repository and fork:
 
 # Inference
 
-* `python detect_face.py --weights weights/yolov5s-face.pt --source data/images/bus.jpg --save-img`
+```shell
+python detect_face.py --weights weights/yolov5s-face.pt --source data/images/bus.jpg --save-img
+```
 
 # WIDERFace evaluation
 
 * Download WIDERFace [validation dataset](https://drive.google.com/file/d/1GUCogbp16PMGa39thoMMeWxp7Rp5oM8Q/view).
 * Move dataset to `data/widerface/val` directory.
-* `python test_widerface.py --weights weights/yolov5s-face.pt --dataset_folder data/widerface/val/images`
-* `cd widerface_evaluate`
-* `python setup.py build_ext --inplace`
-* `python evaluation.py`
+
+```shell
+python test_widerface.py --weights weights/yolov5s-face.pt --dataset_folder data/widerface/val/images
+```
+```shell
+cd widerface_evaluate
+```
+```shell
+python setup.py build_ext --inplace
+```
+```shell
+python evaluation.py
+```
 
 # Export to ONNX format
 
-* `pip install onnx onnxruntime`
-* `python export.py --weights weights/yolov5s-face.pt`
+```shell
+pip install onnx onnxruntime
+```
+```shell
+python export.py --weights weights/yolov5s-face.pt
+```
 
 ## Data preparation
 
