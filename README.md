@@ -26,6 +26,19 @@ Differences between original repository and fork:
 | yolov5m     | 95.30 | 93.76  | 85.28 | 18.146   | 21.063    | [PyTorch](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5m-face.pt), [ONNX](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5m-face.onnx) |
 | yolov5l     | 95.78 | 94.30  | 86.13 | 41.607   | 46.627    |                                                                                                                                                                                       |
 
+# Inference
+
+* `python detect_face.py --weights weights/yolov5s-face.pt --source data/images/bus.jpg --save-img`
+
+# WIDERFace evaluation
+
+* Download WIDERFace [validation dataset](https://drive.google.com/file/d/1GUCogbp16PMGa39thoMMeWxp7Rp5oM8Q/view).
+* Move dataset to `data/widerface/val` directory.
+* `python test_widerface.py --weights weights/yolov5s-face.pt --dataset_folder data/widerface/val/images`
+* `cd widerface_evaluate`
+* `python setup.py build_ext --inplace`
+* `python evaluation.py`
+
 # Export to ONNX format
 
 * `pip install onnx onnxruntime`
@@ -42,34 +55,11 @@ python3 train2yolo.py /path/to/original/widerface/train [/path/to/save/widerface
 python3 val2yolo.py  /path/to/original/widerface [/path/to/save/widerface/val]
 ```
 
-
-
 ## Training
 
 ```shell
 CUDA_VISIBLE_DEVICES="0,1,2,3" python3 train.py --data data/widerface.yaml --cfg models/yolov5s.yaml --weights 'pretrained models'
 ```
-
-
-
-## WIDERFace Evaluation
-
-```shell
-python3 test_widerface.py --weights 'your test model' --img-size 640
-
-cd widerface_evaluate
-python3 evaluation.py
-```
-
-#### Test
-
-![](data/images/result.jpg)
-
-#### Landmark Visulization 
-
-![](data/images/landmark.png)
-First row: RetinaFace, 2nd row: YOLOv5m-Face 
-**YOLO5Face was used in the 3rd place standard face recogntion track of the [ICCV2021 Masked Face Recognition Challenge](https://www.face-benchmark.org/challenge.html).** 
 
 #### Citation 
 - If you think this work is useful for you, please cite 
