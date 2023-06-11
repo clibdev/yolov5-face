@@ -60,31 +60,3 @@ pip install onnx onnxruntime
 ```shell
 python export.py --weights weights/yolov5s-face.pt
 ```
-
-## Data preparation
-
-1. Download WIDERFace datasets.
-2. Download annotation files from [google drive](https://drive.google.com/file/d/1tU_IjyOwGQfGNUvZGwWWM4SwxKp2PUQ8/view?usp=sharing).
-
-```shell
-cd data
-python3 train2yolo.py /path/to/original/widerface/train [/path/to/save/widerface/train]
-python3 val2yolo.py  /path/to/original/widerface [/path/to/save/widerface/val]
-```
-
-## Training
-
-```shell
-CUDA_VISIBLE_DEVICES="0,1,2,3" python3 train.py --data data/widerface.yaml --cfg models/yolov5s.yaml --weights 'pretrained models'
-```
-
-#### Citation 
-- If you think this work is useful for you, please cite 
-
-      @article{YOLO5Face,
-      title = {YOLO5Face: Why Reinventing a Face Detector},
-      author = {Delong Qi and Weijun Tan and Qi Yao and Jingfeng Liu},
-      booktitle = {ArXiv preprint ArXiv:2105.12931},
-      year = {2021}
-      }
-
