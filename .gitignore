@@ -2,7 +2,14 @@
 /.idea
 *.pt
 *.onnx
-/data/widerface/val/images
+/data/widerface/train/*
+!/data/widerface/train/.gitkeep
+/data/widerface/val/*
+!/data/widerface/val/wider_val.txt
+/data/widerface/tmp/*
+!/data/widerface/tmp/.gitkeep
+/data/widerface/train.cache
+/data/widerface/val.cache
 /widerface_evaluate/widerface_txt
 /widerface_evaluate/box_overlaps.c
 /widerface_evaluate/**/*.so

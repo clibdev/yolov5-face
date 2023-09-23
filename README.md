@@ -6,11 +6,13 @@ Differences between original repository and fork:
 * Original pretrained models and converted ONNX models from GitHub [releases page](https://github.com/clibdev/yolov5-face/releases). (🔥)
 * Installation with [requirements.txt](requirements.txt) file.
 * The [wider_val.txt](data/widerface/val/wider_val.txt) file for WIDERFace evaluation. 
-* The following deprecations has been fixed:
+* The following deprecations and errors has been fixed:
   * UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument.
   * DeprecationWarning: 'np.float' is a deprecated alias for builtin 'float'.
   * FutureWarning: Cython directive 'language_level' not set.
   * Cython Warning: Using deprecated NumPy API.
+  * AttributeError: module 'numpy' has no attribute 'int'.
+  * RuntimeError: result type Float can't be cast to the desired output type long int.
 
 # Installation
 
@@ -59,4 +61,30 @@ pip install onnx onnxruntime
 ```
 ```shell
 python export.py --weights weights/yolov5s-face.pt
+```
+
+# Training
+
+* Download WIDERFace [training dataset](https://drive.google.com/file/d/15hGDLhsx8bLgLcIRD5DhYt5iBxnjNF1M/view).
+* Download WIDERFace [validation dataset](https://drive.google.com/file/d/1GUCogbp16PMGa39thoMMeWxp7Rp5oM8Q/view).
+* Download [annotation files](https://drive.google.com/file/d/1tU_IjyOwGQfGNUvZGwWWM4SwxKp2PUQ8/view).
+* Move WIDERFace training images `WIDER_train/images` to `data/widerface/tmp/train/images`.
+* Move WIDERFace validation images `WIDER_val/images` to `data/widerface/tmp/val/images`.
+* Move training annotation file `train/label.txt` to `data/widerface/tmp/train/label.txt`.
+* Move validation annotation file `val/label.txt` to `data/widerface/tmp/val/label.txt`.
+
+```shell
+python data/train2yolo.py data/widerface/tmp/train data/widerface/train
+```
+
+```shell
+python data/val2yolo.py data/widerface/tmp data/widerface/val
+```
+
+```shell
+pip install tensorboard
+```
+
+```shell
+python train.py --data data/widerface.yaml --cfg models/yolov5n-0.5.yaml
 ```

@@ -8,6 +8,9 @@ scipy>=1.10.0
 thop>=0.1.1
 Cython>=0.29.35
 
-### Optional
+### Optional - ONNX format
 # onnx>=1.14.0
 # onnxruntime>=1.15.0
+
+### Optional - Training
+# tensorboard>=2.14.0
