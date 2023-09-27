@@ -153,7 +153,7 @@ def train(hyp, opt, device, tb_writer=None, wandb=None):
                 file.write(ckpt['training_results'])  # write results.txt
 
         # Epochs
-        #start_epoch = ckpt['epoch'] + 1
+        start_epoch = ckpt['epoch'] + 1
         if opt.resume:
             assert start_epoch > 0, '%s training to %g epochs is finished, nothing to resume.' % (weights, epochs)
         if epochs < start_epoch:

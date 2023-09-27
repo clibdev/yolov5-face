@@ -76,15 +76,21 @@ python export.py --weights weights/yolov5s-face.pt
 ```shell
 python data/train2yolo.py data/widerface/tmp/train data/widerface/train
 ```
-
 ```shell
 python data/val2yolo.py data/widerface/tmp data/widerface/val
 ```
-
 ```shell
 pip install tensorboard
 ```
 
+* Start training:
+
 ```shell
 python train.py --data data/widerface.yaml --cfg models/yolov5n-0.5.yaml
+```
+
+* Resume training:
+
+```shell
+python train.py --data data/widerface.yaml --cfg models/yolov5n-0.5.yaml --resume
 ```
