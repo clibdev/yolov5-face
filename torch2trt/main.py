@@ -47,8 +47,6 @@ def img_vis(img,orgimg,pred,vis_thres = 0.6):
     no_vis_nums=0
     # Process detections
     for i, det in enumerate(pred):  # detections per image
-        gn = torch.tensor(orgimg.shape)[[1, 0, 1, 0]]  # normalization gain whwh
-        gn_lks = torch.tensor(orgimg.shape)[[1, 0, 1, 0, 1, 0, 1, 0, 1, 0]]  # normalization gain landmarks
         if len(det):
             # Rescale boxes from img_size to im0 size
             det[:, :4] = scale_coords(img.shape[2:], det[:, :4], orgimg.shape).round()
@@ -66,11 +64,11 @@ def img_vis(img,orgimg,pred,vis_thres = 0.6):
                     no_vis_nums+=1
                     continue
 
-                xywh = (xyxy2xywh(det[j, :4].view(1, 4)) / gn).view(-1).tolist()
+                xyxy = det[j, :4].view(-1).tolist()
                 conf = det[j, 4].cpu().numpy()
-                landmarks = (det[j, 5:15].view(1, 10) / gn_lks).view(-1).tolist()
+                landmarks = det[j, 5:15].view(-1).tolist()
                 class_num = det[j, 15].cpu().numpy()
-                orgimg = show_results(orgimg, xywh, conf, landmarks, class_num)
+                orgimg = show_results(orgimg, xyxy, conf, landmarks, class_num)
 
     cv2.imwrite(cur_path+'/result.jpg', orgimg)
     print('result save in '+cur_path+'/result.jpg')
@@ -79,7 +77,7 @@ def img_vis(img,orgimg,pred,vis_thres = 0.6):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--img_path', type=str, default=cur_path+"/sample.jpg", help='img path') 
-    parser.add_argument('--trt_path', type=str, required=True, help='trt_path') 
+    parser.add_argument('--trt_path', type=str, required=True, help='trt_path')
     parser.add_argument('--output_shape', type=list, default=[1,25200,16], help='input[1,3,640,640] ->  output[1,25200,16]') 
     opt = parser.parse_args()
 

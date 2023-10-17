@@ -13,6 +13,7 @@ Differences between original repository and fork:
   * Cython Warning: Using deprecated NumPy API.
   * AttributeError: module 'numpy' has no attribute 'int'.
   * RuntimeError: result type Float can't be cast to the desired output type long int.
+  * Fixed face bounding box drawing problem in the TensorRT example.
 
 # Installation
 
@@ -61,6 +62,21 @@ pip install onnx onnxruntime
 ```
 ```shell
 python export.py --weights weights/yolov5s-face.pt
+```
+
+# Export to TensorRT format
+
+```shell
+pip install tensorrt pycuda
+```
+```shell
+python export.py --weights weights/yolov5s-face.pt --onnx2trt
+```
+
+# TensorRT Inference
+
+```shell
+python torch2trt/main.py --trt_path weights/yolov5s-face.trt --img_path data/images/bus.jpg
 ```
 
 # Training

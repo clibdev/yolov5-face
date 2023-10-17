@@ -12,5 +12,9 @@ Cython>=3.0.0
 # onnx>=1.14.0
 # onnxruntime>=1.16.0
 
+### Optional - TensorRT format
+# tensorrt>=8.6.0
+# pycuda>=2022.2.0
+
 ### Optional - Training
 # tensorboard>=2.14.0

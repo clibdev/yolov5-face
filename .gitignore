@@ -3,6 +3,7 @@
 /.idea
 *.pt
 *.onnx
+*.trt
 /data/widerface/train/*
 !/data/widerface/train/.gitkeep
 /data/widerface/val/*
@@ -16,3 +17,4 @@
 /widerface_evaluate/**/*.so
 /widerface_evaluate/**/*.o
 /runs
+/torch2trt/result.jpg

@@ -77,7 +77,7 @@ if __name__ == '__main__':
     model.fuse()  # only for ONNX
     input_names=['input']
     output_names=['output']
-    torch.onnx.export(model, img, f, verbose=False, opset_version=18,
+    torch.onnx.export(model, img, f, verbose=False, opset_version=17,
         input_names=input_names,
         output_names=output_names,
         dynamic_axes = {'input': {0: 'batch'},
