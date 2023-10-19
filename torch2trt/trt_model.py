@@ -43,7 +43,7 @@ class TrtModel():
     def __init__(self,trt_path):
         self.ctx=cuda.Device(0).make_context()
         stream = cuda.Stream()
-        TRT_LOGGER = trt.Logger(trt.Logger.INFO)
+        TRT_LOGGER = trt.Logger(trt.Logger.ERROR)
         runtime = trt.Runtime(TRT_LOGGER)
 
         # Deserialize the engine from file
