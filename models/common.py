@@ -4,6 +4,7 @@ import math
 
 import numpy as np
 import requests
+import warnings
 import torch
 import torch.nn as nn
 from PIL import Image, ImageDraw

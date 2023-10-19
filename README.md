@@ -14,6 +14,7 @@ Differences between original repository and fork:
   * AttributeError: module 'numpy' has no attribute 'int'.
   * RuntimeError: result type Float can't be cast to the desired output type long int.
   * Fixed face bounding box drawing problem in the TensorRT example.
+  * NameError: name 'warnings' is not defined.
 
 # Installation
 
