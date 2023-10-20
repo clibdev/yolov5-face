@@ -80,6 +80,12 @@ python export.py --weights weights/yolov5s-face.pt --onnx2trt
 python torch2trt/main.py --trt_path weights/yolov5s-face.trt --img_path data/images/bus.jpg
 ```
 
+# PyTorch vs TensorRT speed comparison
+
+```shell
+python torch2trt/speed.py --torch_path weights/yolov5s-face.pt --trt_path weights/yolov5s-face.trt
+```
+
 # Training
 
 * Download WIDERFace [training dataset](https://drive.google.com/file/d/15hGDLhsx8bLgLcIRD5DhYt5iBxnjNF1M/view).

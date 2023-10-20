@@ -1,3 +1,6 @@
+import os
+import sys
+sys.path.append(os.getcwd())
 from models.experimental import attempt_load
 from torch2trt.trt_model import TrtModel
 import argparse
@@ -37,7 +40,7 @@ if __name__ == '__main__':
 
     # -----------------------torch-----------------------------------------
     img = torch.zeros(opt.img_shape)
-    model = attempt_load(opt.torch_path, map_location=torch.device('cpu'))  # load FP32 model
+    model = attempt_load(opt.torch_path, map_location=torch.device(opt.device))  # load FP32 model
     model.eval()
     total_time=run(model.to(opt.device),img.to(opt.device),opt.warmup_iter,opt.iter)
     print('Pytorch is  %.2f ms/img'%total_time)
