@@ -33,9 +33,9 @@ pip install -r requirements.txt
 | yolov5l                | 95.78 | 94.30  | 86.13 | 41.607   | 46.627    |                                                                                                                                                                                                     |
 | yolov5l (non-original) | 95.63 | 94.06  | 85.49 | 41.607   | 46.627    | [PyTorch](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5l-face-custom.pt), [ONNX](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5l-face-custom.onnx) |
 
-**Note:** Unable to download the YOLOv5l Face model from the original repository due to an expired Google Drive link
-and a lack of access to Baidu Netdisk. So, the decision has been made to train the YOLOv5l Face model from scratch.
-If someone have the original YOLOv5l Face model, please create an issue with a new download link.
+**Note:** Unable to download the YOLOv5l-Face model from the original repository due to an expired Google Drive link
+and a lack of access to Baidu Netdisk. So, the decision has been made to train the YOLOv5l-Face model from scratch.
+If someone have the original YOLOv5l-Face model, please create an issue with a new download link.
 
 # Inference
 
