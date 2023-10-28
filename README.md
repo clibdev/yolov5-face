@@ -24,13 +24,18 @@ pip install -r requirements.txt
 
 # Pretrained models
 
-| Name        | Easy  | Medium | Hard  | FLOPs(G) | Params(M) | Link                                                                                                                                                                                  |
-|-------------|-------|--------|-------|----------|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| yolov5n-0.5 | 90.76 | 88.12  | 73.82 | 0.571    | 0.447     | [PyTorch](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5n-0.5.pt), [ONNX](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5n-0.5.onnx)   |
-| yolov5n     | 93.61 | 91.52  | 80.53 | 2.111    | 1.726     | [PyTorch](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5n-face.pt), [ONNX](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5n-face.onnx) |
-| yolov5s     | 94.33 | 92.61  | 83.15 | 5.751    | 7.075     | [PyTorch](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5s-face.pt), [ONNX](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5s-face.onnx) |
-| yolov5m     | 95.30 | 93.76  | 85.28 | 18.146   | 21.063    | [PyTorch](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5m-face.pt), [ONNX](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5m-face.onnx) |
-| yolov5l     | 95.78 | 94.30  | 86.13 | 41.607   | 46.627    |                                                                                                                                                                                       |
+| Name                   | Easy  | Medium | Hard  | FLOPs(G) | Params(M) | Link                                                                                                                                                                                                |
+|------------------------|-------|--------|-------|----------|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| yolov5n-0.5            | 90.76 | 88.12  | 73.82 | 0.571    | 0.447     | [PyTorch](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5n-0.5.pt), [ONNX](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5n-0.5.onnx)                 |
+| yolov5n                | 93.61 | 91.52  | 80.53 | 2.111    | 1.726     | [PyTorch](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5n-face.pt), [ONNX](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5n-face.onnx)               |
+| yolov5s                | 94.33 | 92.61  | 83.15 | 5.751    | 7.075     | [PyTorch](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5s-face.pt), [ONNX](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5s-face.onnx)               |
+| yolov5m                | 95.30 | 93.76  | 85.28 | 18.146   | 21.063    | [PyTorch](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5m-face.pt), [ONNX](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5m-face.onnx)               |
+| yolov5l                | 95.78 | 94.30  | 86.13 | 41.607   | 46.627    |                                                                                                                                                                                                     |
+| yolov5l (non-original) | 95.63 | 94.06  | 85.49 | 41.607   | 46.627    | [PyTorch](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5l-face-custom.pt), [ONNX](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5l-face-custom.onnx) |
+
+**Note:** Unable to download the YOLOv5l Face model from the original repository due to an expired Google Drive link
+and a lack of access to Baidu Netdisk. So, the decision has been made to train the YOLOv5l Face model from scratch.
+If someone have the original YOLOv5l Face model, please create an issue with a new download link.
 
 # Inference
 
@@ -111,9 +116,15 @@ pip install tensorboard
 ```shell
 python train.py --data data/widerface.yaml --cfg models/yolov5n-0.5.yaml
 ```
+```shell
+python train.py --data data/widerface.yaml --cfg models/yolov5l.yaml --weights weights/yolov5l.pt
+```
 
 * Resume training:
 
 ```shell
 python train.py --data data/widerface.yaml --cfg models/yolov5n-0.5.yaml --resume
+```
+```shell
+python train.py --data data/widerface.yaml --cfg models/yolov5l.yaml --resume
 ```
