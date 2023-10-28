@@ -37,6 +37,9 @@ pip install -r requirements.txt
 and a lack of access to Baidu Netdisk. So, the decision has been made to train the YOLOv5l-Face model from scratch.
 If someone have the original YOLOv5l-Face model, please create an issue with a new download link.
 
+YOLOv5l-Face model training took about 10.57 hours using NVIDIA RTX 4090.
+Results can be found in the [yolov5l-face.txt](result/train/yolov5l-face.txt) file
+
 # Inference
 
 ```shell
