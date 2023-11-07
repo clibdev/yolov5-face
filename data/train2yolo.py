@@ -144,12 +144,14 @@ if __name__ == '__main__':
             if len(labels) == 0:
                 continue
             for idx, label in enumerate(labels):
+                if label[0] > width or label[1] > height or label[2] > width or label[3] > height:
+                    continue
                 annotation = np.zeros((1, 14))
                 # bbox
                 label[0] = max(0, label[0])
                 label[1] = max(0, label[1])
-                label[2] = min(width - 1, label[2])
-                label[3] = min(height - 1, label[3])
+                label[2] = max(0, label[2])
+                label[3] = max(0, label[3])
                 annotation[0, 0] = (label[0] + label[2] / 2) / width  # cx
                 annotation[0, 1] = (label[1] + label[3] / 2) / height  # cy
                 annotation[0, 2] = label[2] / width  # w
