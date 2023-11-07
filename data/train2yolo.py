@@ -140,6 +140,7 @@ if __name__ == '__main__':
             height, width, _ = img.shape
             labels = aa.words[i]
             annotations = np.zeros((0, 14))
+            str_labels = {}
             if len(labels) == 0:
                 continue
             for idx, label in enumerate(labels):
@@ -172,5 +173,8 @@ if __name__ == '__main__':
                     str_label = str_label + " " + str(annotation[0][i])
                 str_label = str_label.replace('[', '').replace(']', '')
                 str_label = str_label.replace(',', '') + '\n'
+                if str_label in str_labels:
+                    continue
+                str_labels[str_label] = 1
                 f.write(str_label)
         cv2.imwrite(save_img_path, img)
