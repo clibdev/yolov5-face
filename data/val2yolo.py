@@ -46,7 +46,8 @@ def wider2face(root, phase='val', ignore_small=0):
                 box = convert((width, height), xywh2xxyy(box))
                 label = '0 {} {} {} {} -1 -1 -1 -1 -1 -1 -1 -1 -1 -1'.format(round(box[0], 4), round(box[1], 4),
                                                                              round(box[2], 4), round(box[3], 4))
-                data[path].append(label)
+                if label not in data[path]:
+                    data[path].append(label)
     return data
 
 
