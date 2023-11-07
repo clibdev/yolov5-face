@@ -158,16 +158,16 @@ if __name__ == '__main__':
                 #    img[int(label[1]):int(label[3]), int(label[0]):int(label[2])] = 127
                 #    continue
                 # landmarks
-                annotation[0, 4] = label[4] / width  # l0_x
-                annotation[0, 5] = label[5] / height  # l0_y
-                annotation[0, 6] = label[7] / width  # l1_x
-                annotation[0, 7] = label[8] / height  # l1_y
-                annotation[0, 8] = label[10] / width  # l2_x
-                annotation[0, 9] = label[11] / height  # l2_y
-                annotation[0, 10] = label[13] / width  # l3_x
-                annotation[0, 11] = label[14] / height  # l3_y
-                annotation[0, 12] = label[16] / width  # l4_x
-                annotation[0, 13] = label[17] / height  # l4_y
+                annotation[0, 4] = np.clip(label[4] / width, None, 1)  # l0_x
+                annotation[0, 5] = np.clip(label[5] / height, None, 1)  # l0_y
+                annotation[0, 6] = np.clip(label[7] / width, None, 1)  # l1_x
+                annotation[0, 7] = np.clip(label[8] / height, None, 1)  # l1_y
+                annotation[0, 8] = np.clip(label[10] / width, None, 1)  # l2_x
+                annotation[0, 9] = np.clip(label[11] / height, None, 1)  # l2_y
+                annotation[0, 10] = np.clip(label[13] / width, None, 1)  # l3_x
+                annotation[0, 11] = np.clip(label[14] / height, None, 1)  # l3_y
+                annotation[0, 12] = np.clip(label[16] / width, None, 1)  # l4_x
+                annotation[0, 13] = np.clip(label[17] / height, None, 1)  # l4_y
                 str_label = "0 "
                 for i in range(len(annotation[0])):
                     str_label = str_label + " " + str(annotation[0][i])
