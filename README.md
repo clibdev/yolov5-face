@@ -2,13 +2,14 @@
 
 Differences between original repository and fork:
 
-* Compatibility with PyTorch >=2.1. (🔥)
+* Compatibility with PyTorch >=2.4. (🔥)
 * Original pretrained models and converted ONNX models from GitHub [releases page](https://github.com/clibdev/yolov5-face/releases). (🔥)
 * Installation with [requirements.txt](requirements.txt) file.
 * The [wider_val.txt](data/widerface/val/wider_val.txt) file for WIDERFace evaluation. 
 * The following deprecations and errors has been fixed:
   * UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument.
   * DeprecationWarning: 'np.float' is a deprecated alias for builtin 'float'.
+  * FutureWarning: You are using 'torch.load' with 'weights_only=False'.
   * FutureWarning: Cython directive 'language_level' not set.
   * Cython Warning: Using deprecated NumPy API.
   * AttributeError: module 'numpy' has no attribute 'int'.
@@ -24,20 +25,29 @@ pip install -r requirements.txt
 
 # Pretrained models
 
-| Name                   | Easy  | Medium | Hard  | FLOPs(G) | Params(M) | Link                                                                                                                                                                                                |
-|------------------------|-------|--------|-------|----------|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| yolov5n-0.5            | 90.76 | 88.12  | 73.82 | 0.571    | 0.447     | [PyTorch](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5n-0.5.pt), [ONNX](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5n-0.5.onnx)                 |
-| yolov5n                | 93.61 | 91.52  | 80.53 | 2.111    | 1.726     | [PyTorch](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5n-face.pt), [ONNX](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5n-face.onnx)               |
-| yolov5s                | 94.33 | 92.61  | 83.15 | 5.751    | 7.075     | [PyTorch](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5s-face.pt), [ONNX](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5s-face.onnx)               |
-| yolov5m                | 95.30 | 93.76  | 85.28 | 18.146   | 21.063    | [PyTorch](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5m-face.pt), [ONNX](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5m-face.onnx)               |
-| yolov5l                | 95.78 | 94.30  | 86.13 | 41.607   | 46.627    |                                                                                                                                                                                                     |
-| yolov5l (non-original) | 95.63 | 94.06  | 85.49 | 41.607   | 46.627    | [PyTorch](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5l-face-custom.pt), [ONNX](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5l-face-custom.onnx) |
+* Download links:
 
-**Note:** Unable to download the YOLOv5l-Face model from the original repository due to an expired Google Drive link
-and a lack of access to Baidu Netdisk. So, the decision has been made to train the YOLOv5l-Face model from scratch.
-If someone have the original YOLOv5l-Face model, please create an issue with a new download link.
+| Name                        | Model Size (MB) | Link                                                                                                                                                                                                | SHA-256                                                                                                                              |
+|-----------------------------|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| YOLOv5n-0.5-Face            | 1.1<br>5.7      | [PyTorch](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5n-0.5-face.pt), [ONNX](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5n-0.5-face.onnx)       | 9f7cdbcf5cd63f454c47b18e7400a69630b96a01efb7559367e91b6e962ad3bd<br>269eb1e54313f9d1f7941ed9939fa247767539bca5801fc7aa7895960e93ca43 |
+| YOLOv5n-Face                | 13.7<br>10.5    | [PyTorch](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5n-face.pt), [ONNX](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5n-face.onnx)               | 794c94da54630f2ca66167fea25530c68133c61a2b14131b073c0d4064934e50<br>ee6ba4ccdc3c075d205c9703aec53a2aa3010c8d7fa08b0eff078e33a4b4fe6c |
+| YOLOv5s-Face                | 54.4<br>30.9    | [PyTorch](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5s-face.pt), [ONNX](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5s-face.onnx)               | a594ade0f5e80f5cf15aef8997d285a3fb4b372a2af5262fbc6837d30318cda7<br>9083776982185402cfb3bd3cba8d453823068e72a0f9b0a6c6060439a850d9c5 |
+| YOLOv5m-Face                | 161.2<br>84.2   | [PyTorch](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5m-face.pt), [ONNX](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5m-face.onnx)               | ca90ccc1b76c06d330a501bdb2cba63d3740fd3ef39baea89c7acc602557a4a2<br>c7ea51072e5f5c1ead34be14b3f4a23f44477448c271bc161b99d122fa0d8f10 |
+| YOLOv5l-Face                | 356.4<br>181.7  | [PyTorch](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5l-face.pt), [ONNX](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5l-face.onnx)               | adfa3fbee5ba97ca86237cf8b45992aaea891ea481d59722da89bbd871a6a546<br>b8b13132e7dd609b82a7cf8ea76d7c6f7695cbd909dc77063e37166af0a12622 |
+| YOLOv5l-Face (non-original) | 89.3<br>181.7   | [PyTorch](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5l-face-custom.pt), [ONNX](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5l-face-custom.onnx) | 7e20bf0c79888b230264e2b5d812a12a69c68bcf1a234b469f86c30d82bd6c2a<br>5340f05f54f3e22ca63234aa4f2622975fd23a62ccd656158f78c94dbeaa33f2 |
 
-YOLOv5l-Face model training took about 10.57 hours using NVIDIA RTX 4090.
+* Evaluation results on WIDERFace dataset:
+
+| Name                        | Easy  | Medium | Hard  | FLOPs(G) | Params(M) |
+|-----------------------------|-------|--------|-------|----------|-----------|
+| YOLOv5n-0.5-Face            | 90.76 | 88.12  | 73.82 | 0.571    | 0.447     |
+| YOLOv5n-Face                | 93.61 | 91.52  | 80.53 | 2.111    | 1.726     |
+| YOLOv5s-Face                | 94.33 | 92.61  | 83.15 | 5.751    | 7.075     |
+| YOLOv5m-Face                | 95.30 | 93.76  | 85.28 | 18.146   | 21.063    |
+| YOLOv5l-Face                | 95.78 | 94.30  | 86.13 | 41.607   | 46.627    |
+| YOLOv5l-Face (non-original) | 95.63 | 94.06  | 85.49 | 41.607   | 46.627    |
+
+YOLOv5l-Face (non-original) model training took about 10.57 hours using NVIDIA RTX 4090.
 Results can be found in the [yolov5l-face.txt](result/train/yolov5l-face.txt) file
 
 # Inference
