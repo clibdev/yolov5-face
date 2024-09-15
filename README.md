@@ -29,6 +29,7 @@ pip install -r requirements.txt
 
 | Name                        | Model Size (MB) | Link                                                                                                                                                                                                | SHA-256                                                                                                                              |
 |-----------------------------|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| YOLOv5-BlazeFace            | 0.5<br>4.4      | [PyTorch](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5-blazeface.pt), [ONNX](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5-blazeface.onnx)       | 942997451c57981608d9e7eb7b0e964f2a83583b8add2409a2c5254a1f36f2d9<br>071cbb36cdb8d0d3dfb9305ba30f96c08a24342a4e835f48b4cc6bf1b185a564 |
 | YOLOv5n-0.5-Face            | 1.1<br>5.7      | [PyTorch](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5n-0.5-face.pt), [ONNX](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5n-0.5-face.onnx)       | 9f7cdbcf5cd63f454c47b18e7400a69630b96a01efb7559367e91b6e962ad3bd<br>269eb1e54313f9d1f7941ed9939fa247767539bca5801fc7aa7895960e93ca43 |
 | YOLOv5n-Face                | 13.7<br>10.5    | [PyTorch](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5n-face.pt), [ONNX](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5n-face.onnx)               | 794c94da54630f2ca66167fea25530c68133c61a2b14131b073c0d4064934e50<br>ee6ba4ccdc3c075d205c9703aec53a2aa3010c8d7fa08b0eff078e33a4b4fe6c |
 | YOLOv5s-Face                | 54.4<br>30.9    | [PyTorch](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5s-face.pt), [ONNX](https://github.com/clibdev/yolov5-face/releases/latest/download/yolov5s-face.onnx)               | a594ade0f5e80f5cf15aef8997d285a3fb4b372a2af5262fbc6837d30318cda7<br>9083776982185402cfb3bd3cba8d453823068e72a0f9b0a6c6060439a850d9c5 |
@@ -38,14 +39,15 @@ pip install -r requirements.txt
 
 * Evaluation results on WIDERFace dataset:
 
-| Name                        | Easy  | Medium | Hard  | FLOPs(G) | Params(M) |
-|-----------------------------|-------|--------|-------|----------|-----------|
-| YOLOv5n-0.5-Face            | 90.76 | 88.12  | 73.82 | 0.571    | 0.447     |
-| YOLOv5n-Face                | 93.61 | 91.52  | 80.53 | 2.111    | 1.726     |
-| YOLOv5s-Face                | 94.33 | 92.61  | 83.15 | 5.751    | 7.075     |
-| YOLOv5m-Face                | 95.30 | 93.76  | 85.28 | 18.146   | 21.063    |
-| YOLOv5l-Face                | 95.78 | 94.30  | 86.13 | 41.607   | 46.627    |
-| YOLOv5l-Face (non-original) | 95.63 | 94.06  | 85.49 | 41.607   | 46.627    |
+| Name                        | Easy  | Medium | Hard  | GFLOPS | Params(M) |
+|-----------------------------|-------|--------|-------|--------|-----------|
+| YOLOv5-BlazeFace            | 90.4  | 88.7   | 78.0  | 2.6    | 0.182     |
+| YOLOv5n-0.5-Face            | 90.76 | 88.12  | 73.82 | 1.5    | 0.447     |
+| YOLOv5n-Face                | 93.61 | 91.52  | 80.53 | 5.6    | 1.726     |
+| YOLOv5s-Face                | 94.33 | 92.61  | 83.15 | 15.2   | 7.075     |
+| YOLOv5m-Face                | 95.30 | 93.76  | 85.28 | 48.2   | 21.063    |
+| YOLOv5l-Face                | 95.78 | 94.30  | 86.13 | 110.6  | 46.627    |
+| YOLOv5l-Face (non-original) | 95.63 | 94.06  | 85.49 | 110.6  | 46.627    |
 
 YOLOv5l-Face (non-original) model training took about 10.57 hours using NVIDIA RTX 4090.
 Results can be found in the [yolov5l-face.txt](result/train/yolov5l-face.txt) file
